@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft Office Install GUI", "Microsoft Office Install GUI.csproj", "{DBFD5755-BA20-4457-B2AB-33C5B7E36BF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBFD5755-BA20-4457-B2AB-33C5B7E36BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBFD5755-BA20-4457-B2AB-33C5B7E36BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBFD5755-BA20-4457-B2AB-33C5B7E36BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBFD5755-BA20-4457-B2AB-33C5B7E36BF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8076E07C-E00E-499A-9D4A-E539A3D43653}
+	EndGlobalSection
+EndGlobal
