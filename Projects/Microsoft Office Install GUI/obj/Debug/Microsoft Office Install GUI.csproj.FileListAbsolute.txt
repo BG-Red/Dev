@@ -13,3 +13,5 @@ D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\Debug\Microsoft O
 D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\Debug\Microsoft Office Install GUI.csproj.CoreCompileInputs.cache
 D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\Debug\Microsoft Office Install GUI.exe
 D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\Debug\Microsoft Office Install GUI.pdb
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\Debug\InstallWindow.g.cs
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\Debug\InstallWindow.baml

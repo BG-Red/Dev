@@ -1,0 +1,51 @@
+﻿<Window x:Class="Microsoft_Office_Install_GUI.InstallWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Microsoft_Office_Install_GUI"
+        mc:Ignorable="d"
+        Title="Review" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid Background="Black">
+        <!-- Grid content from your original XAML with buttons, checkboxes, labels, and one combo box and label -->
+
+        <!-- Exit_Button -->
+        <Button Foreground="Black" Background="LightGray" x:Name="ExitButton" Content="Exit" Click="ExitButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="30" Margin="11,0,0,20" Grid.Row="1"/>
+
+        <!-- Next_Button -->
+        <Button Foreground="Black" Background="LightGray" x:Name="NextButton" Content="Next" Click="NextButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="30" Margin="669,0,0,20" Grid.Row="1"/>
+
+        <!-- Product_Label -->
+        <Label Foreground="White" x:Name="label_product" Content="Product" HorizontalAlignment="Left" Margin="66,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="90" Height="31" FontFamily="Segoe UI" FontSize="16"/>
+
+        <!-- Included_Label -->
+        <Label Foreground="White" x:Name="label_includeproducts" Content="Include Products" HorizontalAlignment="Left" Margin="258,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="130" Height="31" FontFamily="Segoe UI" FontSize="16"/>
+
+        <!-- Excluded_Label -->
+        <Label Foreground="White" x:Name="label_excludeproducts" Content="Exclude Products" HorizontalAlignment="Left" Margin="471,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="130" Height="31" FontFamily="Segoe UI" FontSize="16"/>
+
+        <!-- 64-Bit Checkbox and Label -->
+        <Label Foreground="White" x:Name="label_64bit" Content="64-Bit:" HorizontalAlignment="Left" Margin="641,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="90" Height="31" FontFamily="Segoe UI" FontSize="16" Grid.Row="1" />
+        <CheckBox x:Name="_64" Content="" HorizontalAlignment="Left" Margin="732,89,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.764,5.299" Height="16" Width="17" FontSize="16" Grid.Row="1">
+            <!-- Your CheckBox content goes here -->
+        </CheckBox>
+
+        <!-- Shared Checkbox and Label -->
+        <Label Foreground="White" x:Name="label_shared" Content="Shared:" HorizontalAlignment="Left" Margin="641,129,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="90" Height="31" FontFamily="Segoe UI" FontSize="16" Grid.Row="1" />
+        <CheckBox x:Name="_shared" Content="" HorizontalAlignment="Left" Margin="732,138,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.764,5.299" Height="16" Width="17" FontSize="16" Grid.Row="1">
+            <!-- Your CheckBox content goes here -->
+        </CheckBox>
+
+        <!-- Updates Checkbox and Label -->
+        <Label Foreground="White" x:Name="label_updates" Content="Updates &#xD;&#xA;Enabled:" HorizontalAlignment="Left" Margin="641,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="115" Height="50" FontFamily="Segoe UI" FontSize="16" Grid.Row="1" />
+        <CheckBox x:Name="_UpdatesEnabled" Content="" HorizontalAlignment="Left" Margin="732,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.764,5.299" Height="16" Width="17" FontSize="16" Grid.Row="1">
+            <!-- Your CheckBox content goes here -->
+        </CheckBox>
+
+        <!-- Language ComboBox and Label -->
+        <Label Foreground="White" x:Name="label_Language" Content="Language:" HorizontalAlignment="Left" Margin="641,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="115" Height="32" FontFamily="Segoe UI" FontSize="16" />
+        <ComboBox x:Name="Language" HorizontalAlignment="Left" Margin="648,91,0,0" VerticalAlignment="Top" Width="120">
+            <!-- Your ComboBox content goes here -->
+        </ComboBox>
+    </Grid>
+</Window>

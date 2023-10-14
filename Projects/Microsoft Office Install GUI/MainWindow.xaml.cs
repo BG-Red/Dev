@@ -21,6 +21,7 @@ namespace Microsoft_Office_Install_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
+       
         private List<Product> ProdPackageList = new List<Product>();
         private List<Product> IncludeProducts = new List<Product>();
         private List<Product> ExcludeProducts = new List<Product>();
@@ -47,21 +48,7 @@ namespace Microsoft_Office_Install_GUI
     private void InitializeComponents()
     {            
 
-        // Add items to ComboBox for Language
-        var LanguageList = new List<string>
-        {
-            "MatchOS", "en-us", "ar-sa", "bg-bg", "zh-cn", "zh-tw", "hr-hr", "cs-cz", "da-dk", "nl-nl",
-            "et-ee", "fi-fi", "fr-fr", "de-de", "el-gr", "he-il", "hi-in", "hu-hu", "id-id", "it-it",
-            "ja-jp", "kk-kz", "ko-kr", "lv-lv", "lt-lt", "ms-my", "nb-no", "pl-pl", "pt-br", "pt-pt",
-            "ro-ro", "ru-ru", "sr-latn-cs", "sk-sk", "sl-si", "es-es", "sv-se", "th-th", "tr-tr",
-            "uk-ua", "vi-vn"
-        };
-        var_Language.ItemsSource = LanguageList;
-
-        // Add items to ComboBox for Channel
-        //var ChannelList = new List<string> { "Current", "MonthlyEnterprise", "Semi-AnnualEnterprise" };
-        //Channel.ItemsSource = ChannelList;
-
+       
         // Add Click event handlers
         //NextButton.Click += NextButton_Click;
         //var_ExitButton.Click += ExitButton_Click;
@@ -153,7 +140,23 @@ namespace Microsoft_Office_Install_GUI
             new Product { Name = "SkypeforBusinessRetail", IsSelected = false }
         };
 
-        var ExcludeProducts = new List<Product>
+            // Add items to ComboBox for Language
+            var LanguageList = new List<string>
+        {
+            "MatchOS", "en-us", "ar-sa", "bg-bg", "zh-cn", "zh-tw", "hr-hr", "cs-cz", "da-dk", "nl-nl",
+            "et-ee", "fi-fi", "fr-fr", "de-de", "el-gr", "he-il", "hi-in", "hu-hu", "id-id", "it-it",
+            "ja-jp", "kk-kz", "ko-kr", "lv-lv", "lt-lt", "ms-my", "nb-no", "pl-pl", "pt-br", "pt-pt",
+            "ro-ro", "ru-ru", "sr-latn-cs", "sk-sk", "sl-si", "es-es", "sv-se", "th-th", "tr-tr",
+            "uk-ua", "vi-vn"
+        };
+            Language.ItemsSource = LanguageList;
+
+            // Add items to ComboBox for Channel
+            var ChannelList = new List<string> { "Current", "MonthlyEnterprise", "Semi-AnnualEnterprise" };
+            Channel.ItemsSource = ChannelList;
+
+
+            var ExcludeProducts = new List<Product>
         {
             new Product { Name = "Publisher", IsSelected = false },
             new Product { Name = "PowerPoint", IsSelected = false },
@@ -167,88 +170,102 @@ namespace Microsoft_Office_Install_GUI
             new Product { Name = "Word", IsSelected = false }
         };
 
-        var ProdPackage = new ListBox();
+            ProdPackage.ItemsSource = ProdPackageList;
 
-        // Populate the ListBox with radio buttons
-        foreach (var product in ProdPackageList)
-        {
-            var listBoxItem = new ListBoxItem();
-            listBoxItem.Content = product;
-            var radioButton = new RadioButton
-            {
-                Content = product.Name,
-                GroupName = "ProdPackageGroup"
-            };
-            radioButton.SetBinding(ToggleButton.IsCheckedProperty, new Binding("IsSelected") { Mode = BindingMode.TwoWay });
-            listBoxItem.Content = radioButton;
-            ProdPackage.Items.Add(listBoxItem);
-        };
+            IncludePackage.ItemsSource = IncludeProducts;
 
-        var IncludePackage = new ListBox();
+            ExcludePackage.ItemsSource = ExcludeProducts;
 
-        // Populate the ListBox with products to include
-        foreach (var product in IncludeProducts)
-        {
-            var listBoxItem = new ListBoxItem();
-            listBoxItem.Content = product;
-            var checkBox = new CheckBox
-            {
-                Content = product.Name
-            };
-            checkBox.SetBinding(ToggleButton.IsCheckedProperty, new Binding("IsSelected") { Mode = BindingMode.TwoWay });
-            listBoxItem.Content = checkBox;
-            IncludePackage.Items.Add(listBoxItem);
-        };
-
-        var ExcludePackage = new ListBox();
-
-        // Populate the ListBox with products to exclude
-        foreach (var product in ExcludeProducts)
-        {
-            var listBoxItem = new ListBoxItem();
-            listBoxItem.Content = product;
-            var checkBox = new CheckBox
-            {
-                Content = product.Name
-            };
-            checkBox.SetBinding(ToggleButton.IsCheckedProperty, new Binding("IsSelected") { Mode = BindingMode.TwoWay });
-            listBoxItem.Content = checkBox;
-            ExcludePackage.Items.Add(listBoxItem);
-        };
     }
 
-    /*private void NextButton_Click(object sender, RoutedEventArgs e)
+    private void NextButton_Click(object sender, RoutedEventArgs e)
     {
-        List<string> selectedIncludePackages = IncludePackage.Items.Cast<ListBoxItem>()
-            .Where(item => ((Product)item.Content).IsSelected)
-            .Select(item => ((Product)item.Content).Name)
-            .ToList();
+            List<string> selectedIncludePackages = IncludePackage.Items
+                .Cast<Product>()
+                .Where(product => product.IsSelected)
+                .Select(product => product.Name)
+                .ToList();
 
-        List<string> selectedExcludePackages = ExcludePackage.Items.Cast<ListBoxItem>()
-            .Where(item => ((Product)item.Content).IsSelected)
-            .Select(item => ((Product)item.Content).Name)
-            .ToList();
+            string selectedProdPackage = null;
 
-        bool arch = var__64.IsChecked ?? false;
-        bool shared = var__shared.IsChecked ?? false;
-        bool updates = var__UpdatesEnabled.IsChecked ?? false;
+            foreach (Product product in ProdPackage.Items)
+            {
+                if (product.IsSelected)
+                {
+                    if (selectedProdPackage != null)
+                    {
+                        selectedProdPackage += ", "; // Append a comma and space
+                    }
 
-        string Product = ProdPackageList.First(prod => prod.IsSelected).Name;
-        List<string> Products = new List<string> { Product };
-        Products.AddRange(selectedIncludePackages);
-        string Channel = var_Channel.SelectedItem?.ToString() ?? "";
-        string Language = var_Language.SelectedItem?.ToString() ?? "";
-        string IncludeItems = string.Join(", ", selectedIncludePackages);
-        string Excludes = string.Join(", ", selectedExcludePackages);
+                    selectedProdPackage += product.Name;
+                }
+            }
 
-        // Rest of your code for creating installation configurations and displaying information
-    }*/
+            string IncludeItems = string.Join(", ", selectedIncludePackages);
+
+            // Combine selectedProdPackageName and IncludeItems
+            string combinedString = $"{selectedProdPackage}, {IncludeItems} ";
+
+            // Split the combined string into an array using a comma and space as the delimiter
+            string[] combinedArray = combinedString.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+
+            List<string> selectedExcludePackages = ExcludePackage.Items
+                .Cast<Product>()
+                .Where(product => product.IsSelected)
+                .Select(product => product.Name)
+                .ToList();
+
+            string selectedLanguage = null;
+
+            string selectedLanguages = Language.SelectedItem as string;
+
+            if (!string.IsNullOrEmpty(selectedLanguages))
+            {
+                selectedLanguage = $"/Language:{selectedLanguages} "; // You have the selected language in the selectedLanguage variable
+            }
+            else
+            {
+                selectedLanguage = $"/Language:MatchOS "; // No language selected, handle the case where no language is chosen
+            }
+
+            string source = "--source=\"https://choco.netgaincloud.com/chocolatey\"";
+
+            bool archChecked = (bool)_64.IsChecked;
+            string arch = archChecked ? "/64 " : "";
+
+            bool sharedChecked = (bool)_shared.IsChecked;
+            string shared = sharedChecked ? "/Shared " : "";
+
+            bool updatesChecked = (bool)_UpdatesEnabled.IsChecked;
+            string updates = updatesChecked ? "/Updates:Enabled " : "/Updates:Disabled ";
+
+            string excludeString = "";  // Initialize with an empty string
+            string excludes = "";
+
+            if (selectedExcludePackages.Count > 1)
+            {
+                excludes = string.Join(", ", selectedExcludePackages);
+                excludeString = $"/Exclude:{excludes} ";
+            }
+            else if (selectedExcludePackages.Count == 1)
+            {
+                excludes = selectedExcludePackages[0];
+                excludeString = $"/Exclude:{excludes} ";
+            }
+            string chocoInstallString = $"Choco install Microsoft-Office-Deployment --params=\"/Product:{combinedString}{excludeString}{selectedLanguage}{arch}{shared}{updates}{source}";
+
+            MessageBox.Show(chocoInstallString);
+
+            InstallWindow installWindow = new InstallWindow();
+            installWindow.ShowDialog();
+            // Rest of your code for creating installation configurations and displaying information
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+    {
+        Close();
+    }
 
     }
-           /* private void ExitButton_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-    }*/
-
+    
 }
