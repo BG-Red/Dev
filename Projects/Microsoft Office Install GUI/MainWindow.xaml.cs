@@ -172,13 +172,19 @@ namespace Microsoft_Office_Install_GUI
 
             ProdPackage.ItemsSource = ProdPackageList;
 
+            ProdPackage.Foreground = new SolidColorBrush(Colors.Cyan);
+
             IncludePackage.ItemsSource = IncludeProducts;
+
+            IncludePackage.Foreground = new SolidColorBrush(Colors.Cyan);
 
             ExcludePackage.ItemsSource = ExcludeProducts;
 
-    }
+            //ExcludePackage.Foreground = new SolidColorBrush(Colors.Cyan);
 
-    private void NextButton_Click(object sender, RoutedEventArgs e)
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
     {
             List<string> selectedIncludePackages = IncludePackage.Items
                 .Cast<Product>()
@@ -228,7 +234,7 @@ namespace Microsoft_Office_Install_GUI
                 selectedLanguage = $"/Language:MatchOS "; // No language selected, handle the case where no language is chosen
             }
 
-            string source = "--source=\"https://choco.netgaincloud.com/chocolatey\"";
+            string source = "--source=https://choco.netgaincloud.com/chocolatey";
 
             bool archChecked = (bool)_64.IsChecked;
             string arch = archChecked ? "/64 " : "";
@@ -252,11 +258,11 @@ namespace Microsoft_Office_Install_GUI
                 excludes = selectedExcludePackages[0];
                 excludeString = $"/Exclude:{excludes} ";
             }
-            string chocoInstallString = $"Choco install Microsoft-Office-Deployment --params=\"/Product:{combinedString}{excludeString}{selectedLanguage}{arch}{shared}{updates}{source}";
+            string chocoInstallString = $"Choco install Microsoft-Office-Deployment --params=/Product:{combinedString}{excludeString}{selectedLanguage}{arch}{shared}{updates}{source}";
 
             MessageBox.Show(chocoInstallString);
 
-            InstallWindow installWindow = new InstallWindow();
+            InstallWindow installWindow = new InstallWindow(chocoInstallString);
             installWindow.ShowDialog();
             // Rest of your code for creating installation configurations and displaying information
         }

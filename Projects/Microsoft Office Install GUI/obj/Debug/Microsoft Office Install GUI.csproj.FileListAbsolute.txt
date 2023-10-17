@@ -15,3 +15,11 @@ D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\Debug\Microsoft O
 D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\Debug\Microsoft Office Install GUI.pdb
 D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\Debug\InstallWindow.g.cs
 D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\Debug\InstallWindow.baml
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\bin\Debug\System.Management.Automation.dll
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\Debug\Microsoft Office Install GUI.csproj.CopyComplete
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\bin\Debug\ICSharpCode.AvalonEdit.dll
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\bin\Debug\ICSharpCode.AvalonEdit.xml
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\bin\Debug\Microsoft Office Install GUI.exe.manifest
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\bin\Debug\Microsoft Office Install GUI.application
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\Debug\Microsoft Office Install GUI.exe.manifest
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\Debug\Microsoft Office Install GUI.application

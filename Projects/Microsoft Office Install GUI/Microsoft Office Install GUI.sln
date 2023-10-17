@@ -1,9 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32126.315
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft Office Install GUI", "Microsoft Office Install GUI.csproj", "{DBFD5755-BA20-4457-B2AB-33C5B7E36BF0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A8B75FC9-4569-428F-BC6C-8B9570EE9F2B}"
+	ProjectSection(SolutionItems) = preProject
+		libs\System.Management.Automation.dll = libs\System.Management.Automation.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerShellHandler", "..\PowerShellHandler\PowerShellHandler.csproj", "{8BC1317D-284E-4034-A2D6-26A50F8C6643}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Office_Install_GUI", "..\Office_Install_GUI\Office_Install_GUI.vdproj", "{B52F5FF7-02E1-49CF-AF6B-37119861B9E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +24,12 @@ Global
 		{DBFD5755-BA20-4457-B2AB-33C5B7E36BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBFD5755-BA20-4457-B2AB-33C5B7E36BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBFD5755-BA20-4457-B2AB-33C5B7E36BF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BC1317D-284E-4034-A2D6-26A50F8C6643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BC1317D-284E-4034-A2D6-26A50F8C6643}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BC1317D-284E-4034-A2D6-26A50F8C6643}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BC1317D-284E-4034-A2D6-26A50F8C6643}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B52F5FF7-02E1-49CF-AF6B-37119861B9E2}.Debug|Any CPU.ActiveCfg = Debug
+		{B52F5FF7-02E1-49CF-AF6B-37119861B9E2}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

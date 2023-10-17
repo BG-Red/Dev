@@ -7,45 +7,44 @@
         mc:Ignorable="d"
         Title="Review" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid Background="Black">
+        <Image Source="/Netgain_Logo_Black.gif" HorizontalAlignment="Left" Height="84" Margin="586,0,0,0" VerticalAlignment="Top" Width="198"/>
         <!-- Grid content from your original XAML with buttons, checkboxes, labels, and one combo box and label -->
 
         <!-- Exit_Button -->
-        <Button Foreground="Black" Background="LightGray" x:Name="ExitButton" Content="Exit" Click="ExitButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="30" Margin="11,0,0,20" Grid.Row="1"/>
+        <Button Foreground="Black" Background="LightGray" x:Name="BackButton" Content="Back" Click="BackButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="30" Margin="11,0,0,20" Grid.Row="1"/>
 
         <!-- Next_Button -->
-        <Button Foreground="Black" Background="LightGray" x:Name="NextButton" Content="Next" Click="NextButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="30" Margin="669,0,0,20" Grid.Row="1"/>
+        <Button Foreground="Black" Background="LightGray" x:Name="InstallButton" Content="Install" Click="InstallButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="30" Margin="669,0,0,20" Grid.Row="1"/>
 
-        <!-- Product_Label -->
-        <Label Foreground="White" x:Name="label_product" Content="Product" HorizontalAlignment="Left" Margin="66,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="90" Height="31" FontFamily="Segoe UI" FontSize="16"/>
+        <!-- PowerShell Result Window -->
+        <TextBox x:Name="PowerShellFrame" HorizontalAlignment="Left" Margin="11,46,0,112" Width="602" Background="#333333" Foreground="#87CEEB" Text="{Binding outputItem}" />
 
-        <!-- Included_Label -->
-        <Label Foreground="White" x:Name="label_includeproducts" Content="Include Products" HorizontalAlignment="Left" Margin="258,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="130" Height="31" FontFamily="Segoe UI" FontSize="16"/>
-
-        <!-- Excluded_Label -->
-        <Label Foreground="White" x:Name="label_excludeproducts" Content="Exclude Products" HorizontalAlignment="Left" Margin="471,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="130" Height="31" FontFamily="Segoe UI" FontSize="16"/>
-
-        <!-- 64-Bit Checkbox and Label -->
-        <Label Foreground="White" x:Name="label_64bit" Content="64-Bit:" HorizontalAlignment="Left" Margin="641,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="90" Height="31" FontFamily="Segoe UI" FontSize="16" Grid.Row="1" />
-        <CheckBox x:Name="_64" Content="" HorizontalAlignment="Left" Margin="732,89,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.764,5.299" Height="16" Width="17" FontSize="16" Grid.Row="1">
+        <!-- Debug CheckBox and Label -->
+        <Label Foreground="White" x:Name="label_Debug" Content="Debug:" HorizontalAlignment="Left" Margin="618,153,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="90" Height="31" FontFamily="Segoe UI" FontSize="16" />
+        <CheckBox x:Name="_debug" Content="" HorizontalAlignment="Left" Margin="727,164,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.764,5.299" Height="16" Width="17" FontSize="16">
             <!-- Your CheckBox content goes here -->
         </CheckBox>
 
-        <!-- Shared Checkbox and Label -->
-        <Label Foreground="White" x:Name="label_shared" Content="Shared:" HorizontalAlignment="Left" Margin="641,129,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="90" Height="31" FontFamily="Segoe UI" FontSize="16" Grid.Row="1" />
-        <CheckBox x:Name="_shared" Content="" HorizontalAlignment="Left" Margin="732,138,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.764,5.299" Height="16" Width="17" FontSize="16" Grid.Row="1">
+        <!-- Verbose CheckBox and Label -->
+        <Label Foreground="White" x:Name="label_Verbose" Content="Verbose:" HorizontalAlignment="Left" Margin="618,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="90" Height="31" FontFamily="Segoe UI" FontSize="16" />
+        <CheckBox x:Name="_verbose" Content="" HorizontalAlignment="Left" Margin="727,224,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.764,5.299" Height="16" Width="17" FontSize="16">
             <!-- Your CheckBox content goes here -->
         </CheckBox>
 
-        <!-- Updates Checkbox and Label -->
-        <Label Foreground="White" x:Name="label_updates" Content="Updates &#xD;&#xA;Enabled:" HorizontalAlignment="Left" Margin="641,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="115" Height="50" FontFamily="Segoe UI" FontSize="16" Grid.Row="1" />
-        <CheckBox x:Name="_UpdatesEnabled" Content="" HorizontalAlignment="Left" Margin="732,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.764,5.299" Height="16" Width="17" FontSize="16" Grid.Row="1">
+        <!-- Force Install CheckBox and Label -->
+        <Label Foreground="White" x:Name="label_Force" Content="Force&#xD;&#xA;Install:" HorizontalAlignment="Left" Margin="618,269,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="115" Height="50" FontFamily="Segoe UI" FontSize="16" />
+        <CheckBox x:Name="_force" Content="" HorizontalAlignment="Left" Margin="727,291,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.764,5.299" Height="16" Width="17" FontSize="16">
             <!-- Your CheckBox content goes here -->
         </CheckBox>
 
-        <!-- Language ComboBox and Label -->
-        <Label Foreground="White" x:Name="label_Language" Content="Language:" HorizontalAlignment="Left" Margin="641,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="115" Height="32" FontFamily="Segoe UI" FontSize="16" />
-        <ComboBox x:Name="Language" HorizontalAlignment="Left" Margin="648,91,0,0" VerticalAlignment="Top" Width="120">
+        <!-- Version ComboBox and Label -->
+        <Label Foreground="White" x:Name="label_Version" Content="Version:" HorizontalAlignment="Left" Margin="618,69,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.12,-0.267" Width="115" Height="32" FontFamily="Segoe UI" FontSize="16" />
+        <ComboBox x:Name="version" HorizontalAlignment="Left" Margin="622,105,0,0" VerticalAlignment="Top" Width="120">
             <!-- Your ComboBox content goes here -->
         </ComboBox>
+        
+        <!-- Choco Install String TextBox -->
+        <TextBox x:Name="chocoInstallStringBox" Foreground="#87CEEB" Background="Black" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Your Text Here" VerticalAlignment="Center" Width="513" Height="75" FontSize="10" IsReadOnly="True" BorderThickness="0" Margin="136,334,0,10"/>
+
     </Grid>
 </Window>

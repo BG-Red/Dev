@@ -18,28 +18,45 @@
         <Image Source="C:\Users\Gaming PC\OneDrive\Desktop\ctxHeader01.gif" HorizontalAlignment="Left" Height="84" Margin="586,0,0,0" VerticalAlignment="Top" Width="198"/>
 
         <!-- Product_Package -->
-        <ListBox x:Name="ProdPackage" Background="LightGray" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,70,0,0" Width="200" Height="288" Grid.RowSpan="2">
+        <ListBox x:Name="ProdPackage" Foreground="Cyan" Background="#333333" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,70,0,0" Width="200" Height="288" Grid.RowSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <RadioButton Content="{Binding Name}" IsChecked="{Binding IsSelected, Mode=TwoWay}" GroupName="ProdPackageGroup" />
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton IsChecked="{Binding IsSelected, Mode=TwoWay}" GroupName="ProdPackageGroup"/>
+                        <TextBlock Text="{Binding Name}" Foreground="#87CEEB" />
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
         <!-- Included_Packages -->
-        <ListBox x:Name="IncludePackage" Background="LightGray" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="223,70,0,0" SelectionMode="Multiple" Width="200" Height="288" Grid.RowSpan="2">
+        <ListBox x:Name="IncludePackage" Foreground="Cyan" Background="#333333" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="223,70,0,0" SelectionMode="Multiple" Width="200" Height="288" Grid.RowSpan="2" ItemsSource="{Binding IncludeProducts}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <CheckBox Content="{Binding Name}" IsChecked="{Binding IsSelected, Mode=TwoWay}" />
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding IsSelected}" />
+                        <TextBlock Text="{Binding Name}" Foreground="#87CEEB" />
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
         <!-- Excluded_Packages -->
-        <ListBox x:Name="ExcludePackage" Background="LightGray" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="436,70,0,0" SelectionMode="Multiple" Width="200" Height="288" Grid.RowSpan="2">
+        <!--<ListBox x:Name="ExcludePackage" Foreground="Cyan" Background="#333333" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="436,70,0,0" SelectionMode="Multiple" Width="200" Height="288" Grid.RowSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <CheckBox Content="{Binding Name}" IsChecked="{Binding IsSelected, Mode=TwoWay}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox> -->
+
+        <ListBox x:Name="ExcludePackage" Foreground="Cyan" Background="#333333" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="436,70,0,0" SelectionMode="Multiple" Width="200" Height="288" Grid.RowSpan="2" ItemsSource="{Binding ExcludeProducts}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding IsSelected}" />
+                        <TextBlock Text="{Binding Name}" Foreground="#87CEEB" />
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
