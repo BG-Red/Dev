@@ -4,6 +4,8 @@ using System.Windows;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.IO;
 
 namespace Microsoft_Office_Install_GUI
 {
@@ -14,6 +16,7 @@ namespace Microsoft_Office_Install_GUI
     {
         private string chocoInstallString; // Stuff from MainWindow
         private string localChocoInstallString; // Declare it here
+        private FileSystemWatcher fileWatcher;
 
         //Calls from MainWindow 
 
@@ -29,6 +32,7 @@ namespace Microsoft_Office_Install_GUI
         }
         
         //Behavior for updating localFinalString
+
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -89,10 +93,56 @@ namespace Microsoft_Office_Install_GUI
         //Don't know why this is here but hell if I know
 
         private Runspace runspace;
+        private object errorRecord;
+
+        //Function for PowerShell Command
+
+        private async Task ExecutePowerShellCommand(string command)
+        {
+            using (PowerShell powerShell = PowerShell.Create())
+            {
+                // Collect the output in a StringBuilder
+                StringBuilder resultText = new StringBuilder();
+
+                IProgress<string> progress = new Progress<string>(text =>
+                {
+                    // This method will be executed on the UI thread, update your UI controls here.
+                    resultText.AppendLine(text);
+                    PowerShellFrame.Text = resultText.ToString();
+                    PowerShellFrame.ScrollToEnd();
+                });
+
+                // Source functions.
+                powerShell.AddScript(command);
+
+
+                // invoke execution on the pipeline (collecting output)
+                Collection<PSObject> PSOutput = powerShell.Invoke();
+
+                // loop through each output object item
+                foreach (PSObject outputItem in PSOutput)
+                {
+                    if (outputItem != null)
+                    {
+                        string outputText = outputItem.ToString();
+                        progress.Report(outputText); // Report progress to update UI
+                    }
+                }
+
+                // Check the error stream
+                if (powerShell.Streams.Error.Count > 0)
+                {
+                    foreach (var errorRecord in powerShell.Streams.Error)
+                    {
+                        // Log or display the error
+                        progress.Report("Error: " + errorRecord.ToString()); // Report error
+                    }
+                }
+            }
+        }
 
         //Runs Choco Install String in PowerShell under user login context. May need to run as admin
-
-        private void InstallButton_Click(object sender, RoutedEventArgs e)
+        private async void InstallButton_Click(object sender, RoutedEventArgs e)
         {
 
             bool debugChecked = (bool)_debug.IsChecked;
@@ -109,55 +159,14 @@ namespace Microsoft_Office_Install_GUI
             // PowerShell command to get a list of processes
             var command = finalString;
 
-            MessageBox.Show(command);
+            //MessageBox.Show(command);
 
             // Execute the PowerShell command and get the output
-            ExecutePowerShellCommand(command);
-            
-        }
-        
-        //Function for PowerShell Command
-
-        private void ExecutePowerShellCommand(string command)
-        {
-            using (PowerShell powerShell = PowerShell.Create())
-            {
-                // Source functions.
-                powerShell.AddScript(command);
-
-                // Collect the output in a StringBuilder
-                StringBuilder resultText = new StringBuilder();
-
-                // invoke execution on the pipeline (collecting output)
-                Collection<PSObject> PSOutput = powerShell.Invoke();
-
-                // loop through each output object item
-                foreach (PSObject outputItem in PSOutput)
-                {
-                    // if null object was dumped to the pipeline during the script, then a null object may be present here
-                    if (outputItem != null)
-                    {
-                        Console.WriteLine($"Output line: [{outputItem}]");
-                        resultText.AppendLine(outputItem.ToString());
-                        PowerShellFrame.ScrollToEnd();
-                    }
-                }
-
-                // Update the TextBox with the accumulated output
-                PowerShellFrame.Text = resultText.ToString();
-
-                // check the other output streams (for example, the error stream)
-                if (powerShell.Streams.Error.Count > 0)
-                {
-                    // error records were written to the error stream.
-                    // Do something with the error
-                }
-            }
+            await ExecutePowerShellCommand(command);
 
         }
 
         //BackButton Function
-
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Close();

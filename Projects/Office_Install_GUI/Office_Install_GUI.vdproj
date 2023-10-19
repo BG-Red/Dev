@@ -168,16 +168,24 @@
                         {
                             "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_150C1220F6184D47BFB122844C01C64D"
                             {
-                            "Name" = "8:[Manufacturer]"
+                            "Name" = "8:Netgain"
                             "Condition" = "8:"
-                            "AlwaysCreate" = "11:FALSE"
-                            "DeleteAtUninstall" = "11:FALSE"
+                            "AlwaysCreate" = "11:TRUE"
+                            "DeleteAtUninstall" = "11:TRUE"
                             "Transitive" = "11:FALSE"
                                 "Keys"
                                 {
                                 }
                                 "Values"
                                 {
+                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_D635A8B9D71C4143991424D88A274FAE"
+                                    {
+                                    "Name" = "8:CurrentInstall"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "ValueTypes" = "3:1"
+                                    "Value" = "8:"
+                                    }
                                 }
                             }
                         }

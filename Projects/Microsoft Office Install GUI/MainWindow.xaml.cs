@@ -206,12 +206,18 @@ namespace Microsoft_Office_Install_GUI
                     selectedProdPackage += product.Name;
                 }
             }
-
+            string combinedString = null;
             string IncludeItems = string.Join(", ", selectedIncludePackages);
 
-            // Combine selectedProdPackageName and IncludeItems
-            string combinedString = $"{selectedProdPackage}, {IncludeItems} ";
-
+            if (selectedIncludePackages.Count == 0)
+            {
+                combinedString = selectedProdPackage;
+            }
+            else
+            {
+                // Combine selectedProdPackageName and IncludeItems
+                combinedString = $"{selectedProdPackage}, {IncludeItems}";
+            }
             // Split the combined string into an array using a comma and space as the delimiter
             string[] combinedArray = combinedString.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -234,7 +240,7 @@ namespace Microsoft_Office_Install_GUI
                 selectedLanguage = $"/Language:MatchOS "; // No language selected, handle the case where no language is chosen
             }
 
-            string source = "--source=https://choco.netgaincloud.com/chocolatey";
+            string source = "--source=\"https://choco.netgaincloud.com/chocolatey\"";
 
             bool archChecked = (bool)_64.IsChecked;
             string arch = archChecked ? "/64 " : "";
@@ -243,7 +249,7 @@ namespace Microsoft_Office_Install_GUI
             string shared = sharedChecked ? "/Shared " : "";
 
             bool updatesChecked = (bool)_UpdatesEnabled.IsChecked;
-            string updates = updatesChecked ? "/Updates:Enabled " : "/Updates:Disabled ";
+            string updates = updatesChecked ? "/Updates:Enabled" : "/Updates:Disabled";
 
             string excludeString = "";  // Initialize with an empty string
             string excludes = "";
@@ -251,16 +257,16 @@ namespace Microsoft_Office_Install_GUI
             if (selectedExcludePackages.Count > 1)
             {
                 excludes = string.Join(", ", selectedExcludePackages);
-                excludeString = $"/Exclude:{excludes} ";
+                excludeString = $" /Exclude:{excludes}";
             }
             else if (selectedExcludePackages.Count == 1)
             {
                 excludes = selectedExcludePackages[0];
-                excludeString = $"/Exclude:{excludes} ";
+                excludeString = $" /Exclude:{excludes}";
             }
-            string chocoInstallString = $"Choco install Microsoft-Office-Deployment --params=/Product:{combinedString}{excludeString}{selectedLanguage}{arch}{shared}{updates}{source}";
+            string chocoInstallString = $"Choco install Microsoft-Office-Deployment --params=\"/Product:{combinedString}{excludeString} {selectedLanguage}{arch}{shared}{updates}\" {source}";
 
-            MessageBox.Show(chocoInstallString);
+            //MessageBox.Show(chocoInstallString);
 
             InstallWindow installWindow = new InstallWindow(chocoInstallString);
             installWindow.ShowDialog();

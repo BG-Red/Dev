@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("netgain_logo_black.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("netgain_logo_black.ico")]
 
 
