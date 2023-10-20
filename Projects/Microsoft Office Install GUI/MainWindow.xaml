@@ -15,7 +15,7 @@
             <RowDefinition Height="66*"/>
             <RowDefinition Height="151*"/>
         </Grid.RowDefinitions>
-        <Image Source="C:\Users\Gaming PC\OneDrive\Desktop\ctxHeader01.gif" HorizontalAlignment="Left" Height="84" Margin="586,0,0,0" VerticalAlignment="Top" Width="198"/>
+        <Image Source="/Netgain_Logo_Black.gif" HorizontalAlignment="Left" Height="84" Margin="586,0,0,0" VerticalAlignment="Top" Width="198"/>
 
         <!-- Product_Package -->
         <ListBox x:Name="ProdPackage" Foreground="Cyan" Background="#333333" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,70,0,0" Width="200" Height="288" Grid.RowSpan="2">
