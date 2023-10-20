@@ -1,0 +1,20 @@
+﻿Microsoft Office Install GUI
+
+
+winexe
+C#
+.cs
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\
+Microsoft_Office_Install_GUI
+none
+false
+DEBUG;TRACE
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\App.xaml
+281572680
+
+7515823330
+16-552181327
+MainWindow.xaml;InstallWindow.xaml;
+
+True
+

@@ -1,0 +1,21 @@
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\bin\x64\Debug\Microsoft Office Install GUI.exe.config
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\bin\x64\Debug\Microsoft Office Install GUI.exe
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\bin\x64\Debug\Microsoft Office Install GUI.pdb
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\bin\x64\Debug\ICSharpCode.AvalonEdit.dll
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\bin\x64\Debug\System.Management.Automation.dll
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\bin\x64\Debug\ICSharpCode.AvalonEdit.xml
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\Microsoft Office Install GUI.csproj.AssemblyReference.cache
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\MainWindow.g.cs
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\InstallWindow.g.cs
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\App.g.cs
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\Microsoft Office Install GUI_MarkupCompile.cache
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\Microsoft Office Install GUI_MarkupCompile.lref
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\MainWindow.baml
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\InstallWindow.baml
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\Microsoft Office Install GUI.g.resources
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\Microsoft_Office_Install_GUI.Properties.Resources.resources
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\Microsoft Office Install GUI.csproj.GenerateResource.cache
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\Microsoft Office Install GUI.csproj.CoreCompileInputs.cache
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\Microsoft Office Install GUI.csproj.CopyComplete
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\Microsoft Office Install GUI.exe
+D:\_Choco_Repos_\Dev\Projects\Microsoft Office Install GUI\obj\x64\Debug\Microsoft Office Install GUI.pdb
