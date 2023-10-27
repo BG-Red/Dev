@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Microsoft_Office_Install_GUI"
         mc:Ignorable="d"
-        Title="Microsoft Office Installer" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Microsoft Office Installer" Height="450" Width="800" Loaded="Window_Loaded" ResizeMode="CanMinimize">
     <Grid Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="263*"/>
